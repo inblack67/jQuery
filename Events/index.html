@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery | Events</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+</head>
+
+<body>
+<header>
+<h1>jQuery</h1>
+</header>
+
+<div id="container">
+<h3>Mouse Events</h3>
+<button id="btn1">Button 1</button><button id="btn2">Button 2</button>
+
+<p class="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, odit suscipit vero, quisquam nesciunt adipisci repellendus nulla aliquid neque aliquam enim quo consequuntur repellat temporibus unde laudantium eum cum. Soluta dolorem quis, recusandae esse at facilis consequatur odit deleniti id.</p>
+
+<form action="#" class="form">
+<label for="name">Name</label>
+<input type="text" id="name">
+<hr>
+<label for="email">Email</label>
+<input type="email" id="email">
+<hr>
+<label for="gender">Gender</label>
+<select id="gender">
+<option>
+Male
+</option>
+<option>
+Female
+</option>
+<option>
+Other
+</option>
+</select>
+<hr>
+<input type="submit" name="submit" id="submit" value="Submit">
+
+</form>
+
+</div>
+
+<script>
+
+// $('#btn1').click(function(){alert('Button Clicked!')});
+
+// $('#btn1').on('click',function(){alert('clicked!');});
+
+// $('#btn1').on('click',function()
+// {
+//   // $('.para1').hide();
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn2').on('click',function()
+// {
+//   $('.para1').show();
+// }
+// );
+
+// $('#btn2').on('dblclick',function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn1').hover(function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// // $('#btn1').on('hover',function()
+// // {
+// //   $('.para1').toggle();
+// // } NOT WORKING as hove is not an actual event, shorthand for mouseenter/leave
+// // );
+
+// $('#btn1').on('mouseenter',function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn1').on('mousemove',function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn1').on('mousedown',function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn1').on('mouseup',function()
+// {
+//   $('.para1').toggle();
+// }
+// );
+
+// $('#btn1').click(function(e)
+// {
+//   console.log(e.currentTarget.id);
+//   console.log(e.currentTarget.innerHTML);
+//   console.log(e.currentTarget.className);
+// }
+// )
+
+// $('input').focus(function(){
+// // alert('focus');
+
+// $(this).css('background','pink');
+// // this = whatever element we're in
+// });
+
+// // ==============
+
+// $('input').blur(function(){
+// $(this).css('background','white');
+// });
+
+// // keyup/down
+
+// $('input').keyup(function(e){
+//   console.log(e.target.value);
+// });
+
+
+// ========Change=======
+// pertain to select list(dropdown)
+$('select#gender').change(function(e){
+  alert(e.target.value);
+});
+
+// submit
+
+$('.form').submit(function(e){
+  e.preventDefault();
+  // alert('form saved successfully');
+  console.log('submission is here');
+
+  var name = $('input#name').val();
+  console.log(name);
+
+});
+
+
+
+
+
+
+
+</script>
+</body>
+</html> 
+
+<!-- $(document).ready(....tasks....) -->
+<!-- don't run until the doc is ready -->
+<!-- IF JS HAS TO BE ABOVE = FOOLISH THOUGH -->
