@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery | Effects | Anims</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style>
+.myClass{
+  background: red;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1>jQuery</h1>
+</header>
+
+<div class="container">
+  <button id="btnFadeOut">Fade Out</button>
+  <button id="btnFadeIn">Fade In</button>
+  <button id="btnFadeTog">Fade Toggle</button>
+
+  <button id="btnSlideUp">Slide Up</button>
+  <button id="btnSlideDown">Slide Down</button>
+
+  <button id="btnSlideTog">Slide Toggle</button>
+
+  <button id="stop">Stop</button>
+
+
+  <hr>
+
+  <div id="box">
+    <h1>Hello Worlds</h1>
+  </div>
+
+  <hr>
+
+  <button id="moveLeft">Move Left</button>
+
+  <button id="moveRight">Move Right</button>
+
+  <button id="moveAround">Move Around</button>
+
+  <div id="box2">
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<script>
+$(document).ready(function(){
+
+  $('#btnFadeOut').click(function(){
+    // $('#box').fadeOut();
+    // $('#box').fadeOut('fast'); slow
+
+    // $('#box').fadeOut(2000);
+
+    $('#box').fadeOut(1000,function(){
+      $('#btnFadeOut').text('Gone');
+    });
+
+    // 3000 msec
+
+  })
+
+  $('#btnFadeIn').click(function(){
+    $('#box').fadeIn(1000);
+  });
+
+  $('#btnFadeTog').click(function(){
+    $('#box').fadeToggle(1000);
+  });
+
+  $('#btnSlideUp').click(function(){
+    $('#box').slideUp(1000);
+  });
+
+  $('#btnSlideDown').click(function(){
+    $('#box').slideDown(1000);
+  });
+
+  $('#btnSlideTog').click(function(){
+    $('#box').slideToggle(1000);
+  });
+
+  $('#stop').click(function(){
+    $('#box').stop();
+  });
+
+
+  // ANIMATIONS
+
+  $('#moveRight').click(function(){
+    $('#box2').animate({left: 500, height: '300px',width: '300px',opacity: '0.5'})
+    // move 500px from left 
+    // position must be relative
+  })
+
+  $('#moveLeft').click(function(){
+    $('#box2').animate({left: 0,height: '100px',width: '100px', opacity: '1'})
+  })
+
+
+  $('#moveAround').click(function(){
+    var box = $('#box2');
+    box.animate({left: 300});
+    box.animate({top: 300});
+    box.animate({left: 0, top: 300});
+    box.animate({left: 0, top: 0});
+
+  });
+
+
+
+
+
+
+
+
+  // You must not touch them
+})
+
+</script>
+
+</body>
+</html> 

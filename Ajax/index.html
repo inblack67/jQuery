@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery | Ajax</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet">
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<style>
+.myClass{
+  background: red;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<header>
+<h1>jQuery | AJAX</h1>
+</header>
+
+<div class="container">
+  <div id="result">
+    <ul id="users">
+
+    </ul>
+  </div>
+
+  <form action="https://jsonplaceholder.typicode.com/posts" id="postForm">
+
+    <input type="text" id="title" placeholder="Title">
+<br>
+    <textarea name="" id="body" cols="30" rows="10" placeholder="Body">
+    </textarea>
+
+    <br>
+
+    <input type="submit" value="Submit">
+
+  </form>
+
+</div>
+
+
+<script>
+$(document).ready(function(){
+// $('#result').load('test.html',function(responseTxt, statusTxt,xhr){
+//   if(statusTxt=="success")
+//   {
+//     alert('it went fine');
+//   }
+//   else if(statusTxt=="error"){
+//     alert("Error: " + xhr.statusText);
+//   }
+// });
+
+// $.get('test.html',function(data){$('#result').html(data)});
+
+
+// JSON DATA
+// $.getJSON('users.json',function(data){
+// $.each(data,function(i,user){
+// $('ul#users').append('<li>' + user.firstName + '</li>');
+// })
+// })
+
+
+// $.ajax({
+// method:'GET',
+// url: 'https://jsonplaceholder.typicode.com/posts',
+// dataType: 'json'
+// }).done(function(data){
+//   console.log(data);
+//   $.map(data, function(post,i){
+//     $('#result').append('<h3>' + post.title + '</h3>' + '<p>' + post.body + '</p>')
+//   })
+// });
+
+// FORMS POST REQUEST
+
+$('#postForm').submit(function(e){
+  e.preventDefault();
+  var title = $('#title').val();
+  var body = $('#body').val();
+  var url = $(this).attr('action');
+
+  $.post(url,{title: title, body: body}).done(function(data){
+    console.log('Post Saved');
+    console.log(data);
+  });
+
+});
+
+
+// do not touch them
+});
+
+</script>
+
+
+</body>
+</html> 
